@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!-- I couldn't be bothered to make a whole new stylesheet for this -->
+		<style type="text/css">
+			.red {
+				color: red;
+			}
+			.reveal h1 {
+				text-transform: none;
+			}
+
+			.reveal kbd {
+				display: inline-block;
+				color: black;
+				background-color: beige;
+				padding: 4px;
+				border-style: solid;
+				border-color: hsl(60, 56%, 34%);
+				border-radius: 8px;
+				border-width: 2px 2px 4px 2px;
+				text-align: center;
+				min-width: 1em;
+				line-height: 1;
+			}
+			.reveal kbd + kbd {
+				margin-left: 0.2em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>wqHow to<br/>mess up<br/>a website</h1>
+				</section>
+				<section>
+					<p>working on a client's website</p>
+					<p class="fragment current-visible">using our deploy tools</p>
+					<p class="fragment red">not using our deploy tools</p>
+				</section>
+				<section>
+					<p class="red">not using our deploy tools</p>
+					<p class="fragment">not checking changes into git</p>
+					<p class="fragment">downloading files from prod using an SFTP client</p>
+					<p class="fragment">using SFTP client's default editor</p>
+					<p class="fragment red">not using my default editor</p>
+				</section>
+				<section>
+					<p class="red">not using my default editor</p>
+					<p class="fragment">my default editor is vim</p>
+					<p class="fragment">it has strange commands</p>
+					<p class="fragment">to save you hit <kbd>esc</kbd><kbd>:</kbd><kbd>w</kbd><kbd>q</kbd></p>
+				</section>
+				<section>
+					<p class="red">not using my default editor</p>
+					<p class="fragment">hit <kbd>esc</kbd><kbd>:</kbd><kbd>w</kbd><kbd>q</kbd></p>
+					<p class="fragment">nothing happens</p>
+					<p class="fragment">hit <kbd>&#x2318;</kbd><kbd>s</kbd></p>
+					<p class="fragment">file saves</p>
+					<p class="fragment">SFTP client notices file save, uploads file</p>
+					<p class="fragment">we're done</p>
+				</section>
+				<section>
+					<p class="red">not using my default editor</p>
+					<p class="">hit <kbd>esc</kbd><kbd>:</kbd><kbd>w</kbd><kbd>q</kbd></p>
+					<p class="">"nothing happens"</p>
+					<p class="fragment">hit <kbd>esc</kbd> a few times &rarr; cursor goes to top of file</p>
+					<p class="fragment">hit <kbd>:</kbd> &rarr; ignored because I just pressed <kbd>esc</kbd>!?</p>
+					<p class="fragment">hit <kbd>w</kbd> &rarr; inserts a w</p>
+					<p class="fragment">hit <kbd>q</kbd> &rarr; inserts a q</p>
+				</section>
+				<section>
+					<h2>What file am I editing?</h2>
+					<p><code>functions.php</code> in site's WordPress theme</p>
+					<p>it determines a lot of how the site works</p>
+					<p>it's written in PHP</p>
+				</section>
+				<section>
+					<p>PHP files start with an opening <code>&lt;php</code></p>
+					<p>this file now starts:</p>
+					<pre><code class="hljs">wq&lt;php
+/**
+ * Child theme functions</code></pre>
+				</section>
+				<section>
+					<p>this webpage now starts:</p>
+					<img src="./example.png" alt="a screenshot of a web browser. The page contains a black menu bar with white text and some other content, but above the menu bar is an inserted white bar with black serif text spelling: wq">
+				</section>
+				<section>
+					<p>no one noticed until <span class="fragment highlight-red">12 hours</span> later</p>
+				</section>
+				<section>
+					<h2>aftermath</h2>
+					<p>we had a talk about version control<p>
+					<p>we got the site back under version control</p>
+					<p>we had a talk about our deploy tools</p>
+				</section>
+				<section>
+					<h2>takeaways</h2>
+					<p>don't sidestep your processes</p>
+					<p>when you do, be more thorough in checking</p>
+				</section>
+				<section>
+					<p>have a lovely SRCCON</p>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
