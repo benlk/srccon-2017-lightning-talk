@@ -4,7 +4,7 @@ built using [reveal.js](https://github.com/hakimel/reveal.js)
 
 Content CC-BY 4.0 Ben Keith
 
-This is the slide deck for a lightning talk given at SRCCON 2017.
+This is the slide deck for a lightning talk given at SRCCON 2017. See the slides [here](https://benlk.github.io/srccon-2017-lightning-talk/).
 
 > Lightning talks: I’ve made mistakes, you’ve made mistakes, we’ve all made mistakes. And it’s OK
 >
